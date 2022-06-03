@@ -2,12 +2,8 @@ import { StrictMode } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { hydrateRoot, createRoot } from 'react-dom/client';
 import App from './App';
-import './assets/style/main.scss';
-import registerIcons from './config/fa.config';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-
-registerIcons();
 
 const appElement = (
   <StrictMode>
