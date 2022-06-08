@@ -1,26 +1,22 @@
-import React, { Suspense } from "react";
 import Layout from "./Layout";
 import { MetaInfo, NotFound404 } from "src/components";
-import { usePageTracker, useScrollToTop } from "src/hooks";
-import { Route, Routes } from "react-router-dom";
-
-const MainRoute = React.lazy(() =>
-  import(/* webpackChunkName: "main-route" */ "./pages")
-);
+import { usePageTracker } from "src/hooks";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { routes } from "src/config/routes.config";
 
 const App = () => {
-  useScrollToTop();
   usePageTracker();
+  const location = useLocation();
 
   return (
     <Layout>
       <MetaInfo />
-      <Suspense fallback={<div className="loading" />}>
-        <Routes>
-          <Route path="/" component={MainRoute} />
-          <Route path="*" element={<NotFound404 />} />
-        </Routes>
-      </Suspense>
+      <Routes location={location}>
+        {routes.map(({ path, Component }) => (
+          <Route key={path} path={path} element={<Component />} />
+        ))}
+        <Route path="*" element={<NotFound404 />} />
+      </Routes>
     </Layout>
   );
 };

@@ -13,7 +13,7 @@ const User = () => {
   return (
     <Suspense fallback={<div className="loading" />}>
       <Route>
-        <Route exact path="/" render={(props) => <Home {...props} />} />
+        <Route path="/" render={(props) => <Home {...props} />} />
         <Route path="/about" render={(props) => <About {...props} />} />
         <Navigate to="/404" />
       </Route>

@@ -1,19 +1,20 @@
 import { APP_NAME } from "../config/env.config";
+import { Link } from "react-router-dom";
 
 const COPYRIGHT_ENTITY = `Copyright © ${new Date().getFullYear()} ${APP_NAME?.toLowerCase()}.com`;
 
 const Footer = () => (
   <footer className="footer">
     <div className="buttons">
-      <a
+      <Link
         target="_blank"
         aria-label="GitHub"
         rel="noopener noreferrer"
         className="button is-medium"
-        href="https://github.com/based-ghost"
+        to="https://github.com/based-ghost"
       >
         Github
-      </a>
+      </Link>
     </div>
     <div className="content has-text-centered">{COPYRIGHT_ENTITY}</div>
   </footer>
