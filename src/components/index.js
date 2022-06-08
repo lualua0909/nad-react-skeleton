@@ -1,4 +1,0 @@
-export { default as Footer } from './Footer';
-export { default as Navbar } from './NavBar';
-export { default as MetaInfo } from './MetaInfo';
-export { default as NotFound404 } from './NotFound404';
